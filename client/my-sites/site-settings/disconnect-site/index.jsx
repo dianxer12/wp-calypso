@@ -61,9 +61,12 @@ const DisconnectSite = ( { reason, siteSlug, translate } ) => {
 				</div>
 				<div className="disconnect-site__troubleshooting">
 					<SectionHeader label={ translate( 'Having problems with your connection?' ) } />
-					<CompactCard>
+					<CompactCard
+						href={ 'https://jetpack.com/support/debug/?url=' + siteSlug }
+						target="_blank"
+					>
 						<Gridicon icon="refresh" />
-						{ translate( 'Reconnect your site' ) }
+						{ translate( 'Diagnose a connection problem' ) }
 					</CompactCard>
 					<CompactCard>
 						<Gridicon icon="chat" />
