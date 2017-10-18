@@ -21,18 +21,3 @@
 .disconnect-site__navigation-links {
 	text-align: center;
 }
-
-.disconnect-site__troubleshooting {
-	.card.is-compact {
-		padding-left: 48px; /* 24 + 16 + 8 */
-
-		.gridicons-chat,
-		.gridicons-refresh {
-			display: block;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 16px;
-		}
-	}
-}
