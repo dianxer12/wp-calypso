@@ -3,7 +3,7 @@
  *
  * @format
  */
-
+import config from 'config';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -161,9 +161,10 @@ class Dashboard extends Component {
 		return (
 			<div>
 				{ manageView }
-				{ ! this.props.mailChimpConfigured && (
-					<MailChimp site={ selectedSite } redirectToSettings />
-				) }
+				{ ! this.props.mailChimpConfigured &&
+					( config.isEnabled( 'woocommerce/extension-settings-email' ) && (
+						<MailChimp site={ selectedSite } redirectToSettings />
+					) ) }
 			</div>
 		);
 	};
