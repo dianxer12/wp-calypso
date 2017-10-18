@@ -14,7 +14,6 @@ import { find, get, isEmpty } from 'lodash';
 import ShippingRates from './list';
 import StepContainer from '../step-container';
 import { hasNonEmptyLeaves } from 'woocommerce/woocommerce-services/lib/utils/tree';
-
 import { toggleStep, updateRate } from 'woocommerce/woocommerce-services/state/shipping-label/actions';
 import {
 	getShippingLabel,
@@ -22,6 +21,7 @@ import {
 	getFormErrors,
 	getRatesTotal,
 } from 'woocommerce/woocommerce-services/state/shipping-label/selectors';
+import { getAllPackageDefinitions } from 'woocommerce/woocommerce-services/state/packages/selectors';
 
 const ratesSummary = ( selectedRates, availableRates, total, currencySymbol, packagesSaved, translate ) => {
 	if ( ! packagesSaved ) {
@@ -84,6 +84,7 @@ const RatesStep = ( props ) => {
 		siteId,
 		orderId,
 		form,
+		allPackages,
 		values,
 		available,
 		currencySymbol,
@@ -107,7 +108,7 @@ const RatesStep = ( props ) => {
 				id="rates"
 				showRateNotice={ false }
 				selectedPackages={ form.packages.selected }
-				allPackages={ form.packages.all }
+				allPackages={ allPackages }
 				selectedRates={ values }
 				availableRates={ available }
 				updateRate={ updateRateHandler }
@@ -139,6 +140,7 @@ const mapStateToProps = ( state, { orderId, siteId } ) => {
 		currencySymbol: storeOptions.currency_symbol,
 		errors: loaded && getFormErrors( state, orderId, siteId ).rates,
 		ratesTotal: getRatesTotal( state, orderId, siteId ),
+		allPackages: getAllPackageDefinitions( state, siteId ),
 	};
 };
 
