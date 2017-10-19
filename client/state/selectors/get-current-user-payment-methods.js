@@ -25,11 +25,11 @@ const paymentMethods = {
 	byLocale: {
 		'de-DE': [ 'paypal', 'credit-card' ],
 		'en-DE': [ 'paypal', 'credit-card' ],
-		'nl-NL': [ 'ideal', 'paypal', 'credit-card' ],
 	},
 
 	byCountry: {
 		US: DEFAULT_PAYMENT_METHODS,
+		NL: [ 'ideal', 'credit-card', 'paypal' ],
 	},
 
 	byWpcomLang: {},
