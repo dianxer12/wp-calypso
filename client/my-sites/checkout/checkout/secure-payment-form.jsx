@@ -236,6 +236,7 @@ const SecurePaymentForm = React.createClass( {
 				<SourcePaymentBox
 					cart={ this.props.cart }
 					transaction={ this.props.transaction }
+					selectedSite={ this.props.selectedSite }
 					paymentType={ paymentType }
 					redirectTo={ this.props.redirectTo }
 				/>
